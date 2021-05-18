@@ -1,6 +1,6 @@
 # gen-rf
 
-Generates jsx or tsx file together with spec(test) file with a predefined snippet.
+Generates jsx or tsx file together with test or styles files, all with predefined snippets.
 
 Component name is validated before usage (example for file: primary-button, component will be called PrimaryButton).
 
@@ -10,18 +10,65 @@ Component name is validated before usage (example for file: primary-button, comp
 npx gen-rf
 ```
 
-## Options
+## CLI Options
 
-If --jsx and --tsx is ommited, the default is **tsx**  
-If --file is not specified, the user will be **prompted** to enter file name
+If --file or --out not specified, user will be prompted every time for input
 
 ```
--V, --version           output the version number
--t, --tsx               generate tsx file with spec file
--j, --jsx               generate jsx file with spec file
--f, --file <type>       specify file name (default: "index")
--o, --out <type>        specify output dir (default: ".")
--h, --help              display help for command
+Usage: index [options]
+
+Options:
+  -V, --version           output the version number
+  -g, --gen-cfg           generate config file if one doesn't exist (default: true)
+  type                    file type: tsx/jsx (default: "tsx")
+  -f, --file <type>       specify file name
+  -cnf, --config <type>   specify path to config file (default: ".genrfrc.json")
+  -o, --out <type>        specify output dir
+  -tsf, --test <type>     specify suffix for the test files: none/spec/test (default: "spec")
+  -style, --style <type>  specify whenever to genereate css/scss/sass/less file or not (default: "none")
+  -h, --help              display help for command
+```
+
+## Config file
+
+**Configuration file overrides cli commands/options**
+
+**.genrfrc.json:**
+
+```json
+{
+  "rootDir": "./",
+  "type": "tsx",
+  "test": "spec",
+  "style": "none"
+}
+```
+
+Just run npx gen-rf and configuration file will be auto generated depending on user's input
+
+## package.json
+
+npm
+
+```
+npm install gen-rf --save-dev
+```
+
+yarn
+
+```
+yarn add gen-rf -D
+```
+
+```json
+{
+    ...,
+    "scripts": {
+        ...,
+        "gen-rf": "gen-rf"
+    }
+    ...,
+}
 ```
 
 ## Examples with options
@@ -59,3 +106,12 @@ describe("SecondaryButton component testing with testing-library", () => {
     });
 });
 ```
+
+## Options
+
+{
+"rootDir": "./",
+"type": "tsx",
+"test": "spec",
+"style": "none"
+}
