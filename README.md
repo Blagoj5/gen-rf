@@ -62,12 +62,9 @@ yarn add gen-rf -D
 
 ```json
 {
-    ...,
-    "scripts": {
-        ...,
-        "gen-rf": "gen-rf"
-    }
-    ...,
+  "scripts": {
+    "gen-rf": "gen-rf"
+  }
 }
 ```
 
@@ -107,11 +104,11 @@ describe("SecondaryButton component testing with testing-library", () => {
 });
 ```
 
-## Options
+## Config File Options
 
-{
-"rootDir": "./",
-"type": "tsx",
-"test": "spec",
-"style": "none"
-}
+| Option  | Description                                                                                         |
+| ------- | --------------------------------------------------------------------------------------------------- |
+| rootDir | The root directory used for file creation                                                           |
+| type    | Type for newly craeted files: .jsx\|.tsx                                                            |
+| test    | The suffix that should be appended to the test file: .(test\|spec).(js\|ts) or none                 |
+| test    | The suffix that should be appended to the style file: .(module\|none).(css\|scss\|less\|sass\|none) |
