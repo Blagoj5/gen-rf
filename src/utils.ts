@@ -102,7 +102,7 @@ export const createTestFile = ({
     specPath,
     `import { render } from "@testing-library/react";
 
-import { ${componentName} } from "./${fileName}.${fileType}";
+import { ${componentName} } from "./${fileName}";
 
 describe("${componentName} component testing with testing-library", () => {
     const component = render(<${componentName} />);
