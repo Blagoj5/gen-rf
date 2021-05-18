@@ -2,21 +2,30 @@
   "name": "gen-rf",
   "version": "1.0.0",
   "description": "Generate common tsx/jsx plus spec file",
-  "main": "gen-rf.js",
+  "main": "dist/src/index.js",
   "author": "Blagoj",
   "license": "MIT",
   "dependencies": {
+    "@types/inquirer": "^7.3.1",
     "chalk": "^4.1.1",
-    "commander": "^7.2.0"
+    "commander": "^7.2.0",
+    "inquirer": "^8.0.0"
   },
   "bin": {
-    "gen-rf": "gen-rf.js"
+    "gen-rf": "dist/src/index.js"
   },
   "devDependencies": {
-    "semantic-release": "^17.4.3"
+    "@types/node": "^15.3.0",
+    "semantic-release": "^17.4.3",
+    "typescript": "^4.2.4"
   },
   "scripts": {
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "build": "rm -rf dist/ && tsc && yarn copy-files",
+    "copy-files": "cp README.md  dist/",
+    "watch": "tsc --watch",
+    "start": "node dist/src/index.js",
+    "start:help": "node dist/src/index.js --help"
   },
   "publishConfig": {
     "access": "public",
