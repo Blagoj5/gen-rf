@@ -24,6 +24,12 @@
       "main"
     ]
   },
+  "release": {
+    "branches": [
+      "master",
+      "next"
+    ]
+  },
   "private": false,
   "homepage": "https://github.com/Blagoj5/gen-rf",
   "repository": "github:Blagoj5/gen-rf",
