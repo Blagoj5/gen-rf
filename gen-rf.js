@@ -53,8 +53,10 @@ function ensureDirectoryExistence(filePath = '.') {
 }
 
 const writeToFiles = (fileName, fileType, componentName) => {
+  const filePath = path.resolve(options.out, fileName + fileType);
+  console.log(chalk.yellow('Creating: ' + filePath));
   fs.writeFileSync(
-    path.resolve(options.out, fileName + fileType),
+    filePath,
     `import React from 'react'
 
 interface ${componentName}Props {
@@ -66,9 +68,11 @@ export const ${componentName}: React.FC<${componentName}Props> = ({}) => {
 } 
   `
   );
+  console.log(chalk.green('Created: ' + filePath));
 
   //   Write spec/test. file-name.spec.ts(js)
   const specPath = path.resolve(options.out, fileName + '.spec' + fileType.slice(0, fileName.length));
+  console.log(chalk.yellow('Creating: ' + specPath));
   fs.writeFileSync(
     specPath,
     `import { render } from "@testing-library/react";
@@ -84,6 +88,7 @@ describe("${componentName} component testing with testing-library", () => {
 });
     `
   );
+  console.log(chalk.green('Created: ' + specPath));
 };
 
 const run = async () => {
@@ -93,11 +98,6 @@ const run = async () => {
   // Default is tsx
   let fileType = '.tsx';
   if (options.jsx) fileType = '.jsx';
-  console.log('FILE NAME', fileName);
-  console.log('COMPONENT NAME', componentName);
-  console.log('FILE TYPE', fileType);
-  //   createWriteStream('.');
-  console.log(options);
 
   ensureDirectoryExistence(options.out);
 
