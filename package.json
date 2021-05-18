@@ -1,0 +1,37 @@
+{
+  "name": "gen-rf",
+  "version": "1.0.0",
+  "description": "Generate common tsx/jsx plus spec file",
+  "main": "gen-rf.js",
+  "author": "Blagoj",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "commander": "^7.2.0"
+  },
+  "bin": {
+    "gen-rf": "gen-rf.js"
+  },
+  "devDependencies": {
+    "semantic-release": "^17.4.3"
+  },
+  "scripts": {
+    "semantic-release": "semantic-release"
+  },
+  "publishConfig": {
+    "access": "public",
+    "branches": [
+      "main"
+    ]
+  },
+  "private": false,
+  "homepage": "https://github.com/Blagoj5/gen-rf",
+  "repository": "github:Blagoj5/gen-rf",
+  "bugs": "https://github.com/Blagoj5/gen-rf/issues",
+  "keywords": [
+    "react",
+    "jsx",
+    "tsx",
+    "jest"
+  ]
+}
